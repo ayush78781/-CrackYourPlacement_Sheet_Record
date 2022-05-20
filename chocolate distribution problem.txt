@@ -1,0 +1,16 @@
+class Solution{
+    public:
+    long long findMinDiff(vector<long long> a, long long n, long long m){
+    //code
+    sort(a.begin(),a.end());
+    long long i=0;
+    long long min_ele=INT_MAX;
+    if(n==m)
+       return a[n-1]-a[0];
+    while(i<n-m+1){
+        min_ele=min((a[i+m-1]-a[i]), min_ele);
+        i++;
+     }
+     return min_ele;
+    }   
+};

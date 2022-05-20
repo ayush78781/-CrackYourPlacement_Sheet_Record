@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maxScore(vector<int>& c, int k) {
+        int i=0, n=c.size();
+        int max_score=0;
+        int tot_sum=0;
+        for(;i<n;i++){
+               tot_sum+=c[i];
+           }
+        int pre_sum=0;
+        for(i=0;i<n-k;i++){
+            pre_sum+=c[i];
+        }
+        max_score=max(max_score, tot_sum-pre_sum);
+        cout<<max_score;
+        int s=0;
+        for(i=n-k;i<n;i++){
+            pre_sum=pre_sum-c[s++]+c[i];
+            max_score=max(max_score, tot_sum-pre_sum);
+        }
+        return max_score;  
+    }
+};
