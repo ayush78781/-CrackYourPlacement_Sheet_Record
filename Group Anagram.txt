@@ -1,0 +1,48 @@
+// { Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+//User function Template for C++
+
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> mp;
+        vector<vector<string>> ans;
+        for(auto i:strs){
+            string rem=i;
+            sort(rem.begin(),rem.end());
+            mp[rem].push_back(i);
+        }
+        for(auto i:mp){
+            vector<string> s=i.second;
+            sort(s.begin(),s.end());
+            ans.push_back(s);
+        }
+        sort(ans.begin(), ans.end());
+        return ans;
+    }
+};
+
+// { Driver Code Starts.
+int main(){
+	int tc;
+	cin >> tc;
+	while(tc--){
+		int n;
+		cin >> n;
+		vector<string>s(n);
+		for(auto &i: s)
+			cin >> i;
+		Solution obj;
+		vector<vector<string>> ans = obj.groupAnagrams(s);
+		for(auto i: ans){
+			for(auto j: i){
+				cout << j << " ";
+			}
+			cout << "\n";
+		}
+	}
+	return 0;
+}  // } Driver Code Ends
