@@ -1,0 +1,19 @@
+class Solution{
+  public:
+    
+    string longestCommonPrefix (string arr[], int N)
+    {
+        int i=0;
+        string ans=arr[0];
+        for(int i=0;i<N-1;i++){
+            string temp=arr[i+1];
+            for(int j=0;j<max(ans.length(),temp.length());j++)
+            {
+                if(ans[j]!=temp[j])
+                  ans=ans.substr(0,j);
+            }
+            
+        }
+        return ((ans=="")?"-1":ans);
+    }
+};

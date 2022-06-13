@@ -1,0 +1,33 @@
+class Solution
+{
+  public:
+    string lookandsay(int n) {
+        string ans="11";
+        if(n==1)
+          return "1";
+        if(n==2)
+          return "11";
+        int j=3;
+        while(j<=n){
+            int i=1;
+            int count=1;
+            ans+='$';
+            string temp="";
+            while(i<ans.length()){
+                if(ans[i-1]!=ans[i])
+                   {
+                       temp+=to_string(count);
+                       temp+=ans[i-1];
+                       count=1;
+                   }
+                   else{
+                       count++;
+                   }
+                i++;
+            }
+            j++;
+            ans=temp;
+        }
+        return ans;
+    }   
+};

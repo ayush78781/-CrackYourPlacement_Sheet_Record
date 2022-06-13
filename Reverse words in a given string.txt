@@ -1,0 +1,26 @@
+class Solution
+{
+    public:
+    //Function to reverse words in a given string.
+    void reverse(string &s, int low, int high){
+        while(low<=high){
+            swap(s[low],s[high]);
+            low++;
+            high--;
+        }
+    }
+    string reverseWords(string S) 
+    { 
+        int n=S.length();
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(S[i]=='.'){
+              reverse(S, j, i-1);
+              j=i+1;
+            }
+        }
+        reverse(S, j, n-1);
+        reverse(S, 0, n-1);
+        return S;
+    } 
+};
